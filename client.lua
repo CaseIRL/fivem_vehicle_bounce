@@ -134,33 +134,3 @@ end)
 RegisterNetEvent('vehicle_bouncemode:cl:start_bounce', function()
     toggle_vehicle_bounce_mode()
 end)
-
---- Sets the in-game time.
--- @param hour The hour to set (0-23).
--- @param minute The minute to set (0-59).
--- @param second The second to set (0-59).
-function SetTime(hour, minute)
-    -- Ensure the values are within expected ranges to avoid any potential issues.
-    hour = math.floor(math.max(0, math.min(23, hour)))
-    minute = math.floor(math.max(0, math.min(59, minute)))
-
-    -- Use the native function to set the time.
-    NetworkOverrideClockTime(hour, minute, 0)
-end
-
--- Example usage:
-RegisterCommand("settime", function(source, args, rawCommand)
-    if #args < 2 then
-        print("Usage: /settime <hour> <minute>")
-        return
-    end
-
-    local hour = tonumber(args[1])
-    local minute = tonumber(args[2])
-    if hour and minute then
-        SetTime(hour, minute)
-        print(string.format("Time set to %02d:%02d:%02d.", hour, minute))
-    else
-        print("Invalid time provided.")
-    end
-end, false)
