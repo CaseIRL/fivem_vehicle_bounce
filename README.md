@@ -12,7 +12,7 @@ Can specify vehicle types to allow bounce mode if you like, default all types ar
 
 To remain standalone this works with a simple RegisterCommand, this could be easily adapted to work with a item setup however I will not be doing this. 
 
-This resource is provide **WITHOUT** support.
+This resource is provided **WITHOUT** support.
 
 Please do not join the BOII | Development discord server requesting support, your ticket will be closed. 
 
