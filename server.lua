@@ -11,7 +11,7 @@ local active_bounce_modes = {}
 -- @param range The range within which to find players.
 -- @param include_source Whether to include the player (if coords_or_source is a player identifier) in the result.
 -- @return A table of player identifiers within the specified range.
--- @usage local players_in_range = utils.scope.get_players_in_range(coords_or_source, range, include_source)
+-- @usage local players_in_range = get_players_in_range(coords_or_source, range, include_source)
 local function get_players_in_range(coords_or_source, range, include_source)
     local players_in_range = {}
     local source_coords
@@ -43,7 +43,6 @@ RegisterServerEvent('vehicle_bouncemode:sv:stop_bounce', function()
         local veh_netid = NetworkGetNetworkIdFromEntity(vehicle)
         if active_bounce_modes[veh_netid] then
             active_bounce_modes[veh_netid] = nil
-            --scope.trigger_scope_event('vehicle_bouncemode:cl:start_bounce', _src, veh_netid, false)
             local players_in_range = get_players_in_range(_src, 50.0, true)
             for _, players in ipairs(players_in_range) do
                 TriggerClientEvent('vehicle_bouncemode:cl:start_bounce', players)
@@ -62,7 +61,6 @@ RegisterCommand('veh_bounce', function(source, args, raw)
         local veh_netid = NetworkGetNetworkIdFromEntity(vehicle)
         local is_bounce_mode_active = not active_bounce_modes[veh_netid]
         active_bounce_modes[veh_netid] = is_bounce_mode_active
-        --scope.trigger_scope_event('vehicle_bouncemode:cl:start_bounce', source, veh_netid, is_bounce_mode_active)
         local players_in_range = get_players_in_range(source, 50.0, true)
         for _, players in ipairs(players_in_range) do
             TriggerClientEvent('vehicle_bouncemode:cl:start_bounce', players)
