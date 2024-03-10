@@ -17,3 +17,20 @@ This resource is provided **WITHOUT** support.
 Please do not join the BOII | Development discord server requesting support, your ticket will be closed. 
 
 Enjoy 😄
+
+--- 
+
+## Instructions
+
+### Installation
+
+Drag and drop the resource into your server and ensure it. Then you should be good to go. 
+
+Use the command:
+```
+/veh_bounce
+```
+
+And bounce away...
+
+You can modify the settings in the top of the `client/main.lua`
